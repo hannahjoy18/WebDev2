@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Car</title>
+</head>
+<body>
+<h2>Add New Car</h2>
+<form action="#" th:action="@{/add}" th:object="${car}" method="post">
+    <label>License Plate: <input type="text" th:field="*{licensePlateNumber}" /></label><br/>
+    <label>Make: <input type="text" th:field="*{make}" /></label><br/>
+    <label>Model: <input type="text" th:field="*{model}" /></label><br/>
+    <label>Year: <input type="number" th:field="*{year}" /></label><br/>
+    <label>Color: <input type="text" th:field="*{color}" /></label><br/>
+    <label>Body Type:
+        <select th:field="*{bodyType}">
+            <option>Sedan</option>
+            <option>SUV</option>
+            <option>Hatchback</option>
+        </select>
+    </label><br/>
+    <label>Engine Type:
+        <select th:field="*{engineType}">
+            <option>Gasoline</option>
+            <option>Diesel</option>
+            <option>Electric</option>
+            <option>Hybrid</option>
+        </select>
+    </label><br/>
+    <label>Transmission:
+        <select th:field="*{transmission}">
+            <option>Automatic</option>
+            <option>Manual</option>
+        </select>
+    </label><br/>
+    <button type="submit">Add Car</button>
+</form>
+<a href="/cars">Back to List</a>
+</body>
+</html>
