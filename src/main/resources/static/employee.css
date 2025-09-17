@@ -1,0 +1,124 @@
+/* employee.css */
+
+/* General page styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+main {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #ffffffcc;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Buttons / links */
+a {
+    display: inline-block;
+    margin: 0 10px 20px 10px;
+    padding: 10px 25px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+thead {
+    background-color: #3498db;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody tr {
+    background-color: #f9f9f9;
+    transition: background 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #eef2f3;
+}
+
+tbody tr:hover {
+    background-color: #d1ecf1;
+}
+
+/* Actions links inside table */
+tbody td a {
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+tbody td a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    tbody td {
+        padding: 10px 0;
+        text-align: right;
+        position: relative;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}

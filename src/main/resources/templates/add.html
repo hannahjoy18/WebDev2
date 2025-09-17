@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <link th:href="@{/add.css}" rel="stylesheet">
+</head>
+<body>
+<main>
+    <h1>Add Employee</h1>
+
+    <form th:action="@{/save}" th:object="${employee}" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+        <input type="text" th:field="*{name}" placeholder="Name">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="field-error"></div>
+
+        <input type="email" th:field="*{email}" placeholder="Email">
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="field-error"></div>
+
+        <button type="submit">Save</button>
+        <a th:href="@{/}">Back</a>
+    </form>
+</main>
+</body>
+</html>
