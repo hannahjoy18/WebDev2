@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Car</title>
+    <link th:href="@{/add.css}" rel="stylesheet">
+</head>
+<body>
+<main>
+    <h1>Update Car</h1>
+    <form th:action="@{/update}" method="post" th:object="${car}">
+        <!-- Hidden ID field -->
+        <input type="hidden" th:field="*{id}" />
+
+        <input type="text" th:field="*{make}" placeholder="Make">
+        <div class="field-error" th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></div>
+
+        <input type="text" th:field="*{model}" placeholder="Model">
+        <div class="field-error" th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></div>
+
+        <input type="number" th:field="*{year}" placeholder="Year">
+        <div class="field-error" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></div>
+
+        <input type="text" th:field="*{color}" placeholder="Color">
+        <div class="field-error" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
+
+        <input type="text" th:field="*{bodyType}" placeholder="Body Type">
+        <div class="field-error" th:if="${#fields.hasErrors('bodyType')}" th:errors="*{bodyType}"></div>
+
+        <input type="text" th:field="*{engineType}" placeholder="Engine Type">
+        <div class="field-error" th:if="${#fields.hasErrors('engineType')}" th:errors="*{engineType}"></div>
+
+        <input type="text" th:field="*{transmissionType}" placeholder="Transmission (e.g., Automatic or Manual)">
+        <div class="field-error" th:if="${#fields.hasErrors('transmissionType')}" th:errors="*{transmissionType}"></div>
+
+        <input type="text" th:field="*{licensePlate}" placeholder="License Plate (e.g., AXL-0984)">
+        <div class="field-error" th:if="${#fields.hasErrors('licensePlate')}" th:errors="*{licensePlate}"></div>
+
+        <div class="button-container">
+            <button type="submit">Update Car</button>
+            <a th:href="@{/}">Back to List</a>
+        </div>
+    </form>
+</main>
+</body>
+</html>

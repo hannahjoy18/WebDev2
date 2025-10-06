@@ -1,0 +1,120 @@
+:root {
+    --bg1: #1a1a2e;        /* darker background */
+    --bg2: #12121f;        /* deeper dark */
+    --card-bg: rgba(25, 25, 45, 0.75); /* darker glass card */
+    --accent: #8b5cf6;     /* bright purple accent */
+    --accent-hover: #7c3aed;
+    --btn: #4f46e5;        /* deeper indigo button */
+    --btn-hover: #4338ca;
+    --text: #e4e4e7;       /* off-white text */
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+/* container with glassy effect */
+.error-container {
+    max-width: 500px;
+    width: 100%;
+    padding: 35px 40px;
+    background: var(--card-bg);
+    backdrop-filter: blur(18px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* glowing animated headline */
+.error-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(139,92,246,0.7), 0 0 25px rgba(139,92,246,0.4);
+    animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {text-shadow: 0 0 10px rgba(139,92,246,0.6);}
+    to {text-shadow: 0 0 25px rgba(139,92,246,0.9);}
+}
+
+.error-container p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #cfcfe0;
+}
+
+/* button */
+.home-link {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--btn);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79,70,229,0.4);
+}
+
+.home-link:hover {
+    background: var(--btn-hover);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 25px rgba(79,70,229,0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .error-container {
+        padding: 25px 30px;
+    }
+
+    .error-container h1 {
+        font-size: 2rem;
+    }
+
+    .error-container p {
+        font-size: 1rem;
+    }
+
+    .home-link {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-container {
+        padding: 20px 20px;
+    }
+
+    .error-container h1 {
+        font-size: 1.7rem;
+    }
+
+    .error-container p {
+        font-size: 0.95rem;
+    }
+
+    .home-link {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+}

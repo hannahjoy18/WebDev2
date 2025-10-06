@@ -1,0 +1,202 @@
+:root {
+    --primary: #4b3fbd; /* darker purple */
+    --primary-hover: #372da0; /* deeper hover */
+    --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #162447 100%); /* dark gradient */
+    --card-bg: rgba(20, 20, 35, 0.4); /* darker glass effect */
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    padding: 20px;
+    color: #e0e0ff;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #f0f0ff;
+}
+
+/* Navigation links */
+.nav-links {
+    text-align: left;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    margin-left: 100px;
+    margin-right: auto;
+}
+
+.nav-links a:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* Table container */
+table {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    animation: slide-in 0.6s ease;
+}
+
+@keyframes slide-in {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+thead {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+thead th {
+    padding: 12px 15px;
+    font-size: 14px;
+    text-align: left;
+    color: #cfcfff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+tbody td {
+    padding: 12px 15px;
+    font-size: 13px;
+    color: #d0d0ff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    transition: background-color 0.3s ease;
+}
+
+/* Action buttons inside table */
+.actions a {
+    display: block;
+    padding: 6px 12px;
+    margin-right: 5px;
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.actions a:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.4);
+}
+
+/* Responsive design for tablets and mobile */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+
+    tbody td, thead th {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody td {
+        padding: 12px 15px;
+        border: none;
+        position: relative;
+        text-align: right;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        top: 12px;
+        font-weight: bold;
+        color: #aaaaff;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 10px;
+        box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    .actions a {
+        margin: 5px 0 0 0;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-links a {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    tbody td::before {
+        font-size: 11px;
+    }
+}

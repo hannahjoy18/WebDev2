@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car List</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+<h1>Hannah's Car List</h1>
+
+<div class="nav-links">
+    <a href="/add">Add New Car</a>
+    <a th:href="@{/logout}" style="margin-left: 20px;">Logout</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Color</th>
+        <th>Body Type</th>
+        <th>Engine Type</th>
+        <th>License Plate</th>
+        <th>Transmission</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.make}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.year}"></td>
+        <td th:text="${car.color}"></td>
+        <td th:text="${car.bodyType}"></td>
+        <td th:text="${car.engineType}"></td>
+        <td th:text="${car.licensePlate}"></td>
+        <td th:text="${car.transmissionType}"></td>
+        <td class="actions">
+            <a th:href="@{/edit(id=${car.id})}">Edit</a>
+            <a th:href="@{/delete(id=${car.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

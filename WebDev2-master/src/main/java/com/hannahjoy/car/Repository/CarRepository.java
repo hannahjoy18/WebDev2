@@ -1,5 +1,6 @@
-package com.hannahjoy.car;
+package com.hannahjoy.car.Repository;
 
+import com.hannahjoy.car.Model.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
