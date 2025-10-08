@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public String handleResourceNotFound(ResourceNotFoundException ex, Model model) {
         model.addAttribute("message", "The ID you’re trying to reach isn’t on our route.");
-        return "error/error"; // Will show error page
+        return "error/error";
     }
 
     @ExceptionHandler(Exception.class)
