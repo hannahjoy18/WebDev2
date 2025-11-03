@@ -16,17 +16,14 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    // Get all products
     public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    // Find product by ID
     public Product findById(int id) {
         return productRepository.findById(id).orElse(null);
     }
 
-    // Save new product
     public Product save(ProductDTO dto) {
         Product product = new Product();
         product.setName(dto.getName());
@@ -37,7 +34,6 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    // Update existing product
     public Product updateProduct(Product existing, ProductDTO dto) {
         existing.setName(dto.getName());
         existing.setDescription(dto.getDescription());
@@ -47,7 +43,6 @@ public class ProductService {
         return productRepository.save(existing);
     }
 
-    // Delete product by ID
     public void deleteProduct(int id) {
         productRepository.deleteById(id);
     }
