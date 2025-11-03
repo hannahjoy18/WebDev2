@@ -16,24 +16,20 @@ public class ProductController {
 
     private final ProductService productService;
 
-    // Constructor
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    // Get all products
     @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productService.findAll();
     }
 
-    // Add new product
     @PostMapping("/products")
     public Product newProduct(@Valid @RequestBody ProductDTO product) {
         return productService.save(product);
     }
 
-    // Update existing product
     @PutMapping("/products/{id}")
     public Product updateProduct(@PathVariable int id, @Valid @RequestBody ProductDTO product) {
         Product existingProduct = productService.findById(id);
@@ -43,7 +39,6 @@ public class ProductController {
         return productService.updateProduct(existingProduct, product);
     }
 
-    // Delete product by ID
     @DeleteMapping("/products/{id}")
     public void deleteProduct(@PathVariable int id) {
         if (productService.findById(id) == null) {
